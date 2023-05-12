@@ -48,7 +48,7 @@ class menu extends Phaser.Scene {
 
         this.anims.create({
             key: "wave",
-            frameRate: 2,
+            frameRate: 1,
             frames: this.anims.generateFrameNumbers("wave", { start: 0, end: 2 }),
         });
 
