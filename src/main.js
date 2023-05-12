@@ -12,6 +12,7 @@ let config = {
             }
         }
     },
+    
     scene: [menu,play]
 }
 
