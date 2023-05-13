@@ -10,6 +10,11 @@ class Fire extends Phaser.GameObjects.Sprite{
     update(){
         this.x -= this.moveSpeed;
 
+        if(this.checkCollision(this.parentScene.run, this)){
+            gameOver = true;
+            this.parentScene.pause();
+        }
+        
         if(this.fireSpawn && this.x < centerx) {
             // (recursively) call parent scene method from this context
             this.parentScene.addProjectile();

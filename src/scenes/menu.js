@@ -4,7 +4,7 @@ class menu extends Phaser.Scene {
     }
 
     preload(){
-        this.load.spritesheet('runner', './assets/runner.png', {frameWidth:64, frameHeight:64});
+        this.load.spritesheet('runner', './assets/runner.png', {frameWidth:35, frameHeight:64});
         this.load.spritesheet('teleport', './assets/teleport.png', {frameWidth: 48, frameHeight: 48});
         this.load.image('bg', './assets/bg.png');
         this.load.spritesheet('arrow', './assets/arrow.png', {frameWidth: 64, frameHeight: 32});
@@ -126,7 +126,7 @@ class menu extends Phaser.Scene {
             this.arrowGroup.add(arrow);
         }
         if(proj1 == 3){
-            let fire = new Fire(this, 650, 500, 'fireball', 0);
+            let fire = new Fire(this, 650, 520, 'fireball', 0);
             fire.play('fireball');   
             this.fireGroup.add(fire);
         }
