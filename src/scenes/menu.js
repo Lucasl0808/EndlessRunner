@@ -148,9 +148,9 @@ class menu extends Phaser.Scene {
             this.arrowGroup.add(arrow);
         }
         if(proj1 == 3){
-            let arrow = new Arrow(this, 650, 300, 'arrow', 0);
-            arrow.play('arrow');   
-            this.arrowGroup.add(arrow);
+            let fire = new Fire(this, 650, 500, 'fireball', 0);
+            fire.play('fireball');   
+            this.fireGroup.add(fire);
         }
     }
 
