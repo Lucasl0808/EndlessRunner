@@ -53,35 +53,41 @@ class menu extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers("wave", { start: 0, end: 2 }),
         });
 
-        this.arrow = new Arrow(this, 600, 300, 'arrow');//this.add.sprite(600, 300, 'arrow');
-        this.arrow.play('arrow');
-
+        //this.arrow = new Arrow(this, 600, 300, 'arrow');//this.add.sprite(600, 300, 'arrow');
+        //this.arrow.play('arrow');
+        
         this.run = this.add.sprite(100, 120,'runner');
         this.run.play('running');
 
-        this.fire = this.add.sprite(600, 500, 'fireball');
-        this.fire.play('fireball');
+        //this.fire = this.add.sprite(600, 500, 'fireball');
+        //this.fire.play('fireball');
 
-        this.wave = this.add.sprite(600, 90, 'wave');
-        this.wave.play('wave');
+        //this.wave = this.add.sprite(600, 90, 'wave');
+        //this.wave.play('wave');
 
         this.tutorial = this.add.text(centerx, centery - 50, 'Press Up arrow and Down arrow to move your character and avoid the projectiles!', textConfig).setOrigin(0.5);
         
-        this.newProj1 = false;
-        this.newProj2 = false;
+        this.newProj = false;
 
         this.instructions = this.time.delayedCall(7000, ()=>{
             this.tutorial.destroy();
-            this.newProj1 = true;
-            this.newProj2 = true;
+            this.newProj = true;
+            this.addProjectile();
         }, null, this)
         this.gameOver = false;
+
+        this.arrowGroup = this.add.group({
+            runChildUpdate: true
+        });
+        this.waveGroup = this.add.group({
+            runChildUpdate: true
+        });
+        this.fireGroup = this.add.group({
+            runChildUpdate: true
+        });
     }
     update(){
 
-        if(!this.gameOver){
-            this.arrow.update();
-        }
         if(Phaser.Input.Keyboard.JustDown(keyUP) && (this.run.y - 200) > 0){
             this.tp = this.add.sprite(this.run.x, this.run.y, 'teleport');
             this.tp.play('teleport');
@@ -104,41 +110,48 @@ class menu extends Phaser.Scene {
         }
         this.bg.tilePositionX += 2;
 
-        //1, 4, 11 = wave
-        //2,5, 10 = arrow
-        //3, 6, 12 = fireball
-        let proj1 = Phaser.Math.Between(1,3);
-        let proj2;
-        if(proj1 == 1){
-            proj2 == Phaser.Math.Between(5,6); // if wave, choose either fire or arrow
-            if(proj2 == 5){
-                //wave and arrow - call prefab functions to spawn them in
+        //1 = water
+        //2 = arrow
+        //3 = fire
 
-            }
-            else{
-                //wave and fire
-            }
+        /*
+        let proj1 = Phaser.Math.Between(1,3);
+        if(proj1 == 1 && this.newProj == true){
+            //arrow and fire
+            //this.arrow = new Arrow(this, 600, 300, 'arrow');
+            //this.arrow.play('arrow');
+            this.addArrow();
         }
-        if(proj1 == 2){
-            proj2 == Phaser.Math.Between(11,12);//if arrow, choose either fire or wave
-            if(proj2 == 11){
-                //arrow and wave
-            }
-            else{
-                //arrow and fire
-            }
+        if(proj1 == 2 && this.newProj == true){
+            //water and fire
         }
-        if(proj1 == 3){
-            proj2 == Phaser.Math.Between(4,5);//if fire, choose either arrow or wave
-            if(proj2 == 4){
-                //fire and wave
-            }
-            else{
-                //fire and arrow
-            }
+        if(proj1 == 3 && this.newProj == true){
+            //arrow and water
+            this.addArrow();
+            
         }
+        */
     }
 
 
+    //change to "addProjectile" where it will decide what projectiles to add 
+    addProjectile(){
+        let proj1 = Phaser.Math.Between(1,3);
+        if(proj1 == 1){
+            let wave = new Wave(this, 650, 90, 'wave', 0);
+            wave.play('wave');   
+            this.waveGroup.add(wave);
+        }
+        if(proj1 == 2){
+            let arrow = new Arrow(this, 650, 300, 'arrow', 0);
+            arrow.play('arrow');   
+            this.arrowGroup.add(arrow);
+        }
+        if(proj1 == 3){
+            let arrow = new Arrow(this, 650, 300, 'arrow', 0);
+            arrow.play('arrow');   
+            this.arrowGroup.add(arrow);
+        }
+    }
 
 }
