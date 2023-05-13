@@ -47,3 +47,5 @@ let textConfig = {
     },
     fixedWidth: 0
 }
+
+let gameOver = false;

@@ -20,4 +20,16 @@ class Fire extends Phaser.GameObjects.Sprite{
             this.destroy();
         }
     }
+
+    checkCollision(player, projectile) {
+        // simple AABB checking
+        if (player.x < projectile.x + projectile.width && 
+            player.x + player.width > projectile.x && 
+            player.y < projectile.y + projectile.height &&
+            player.height + player.y > projectile. y) {
+                return true;
+        } else {
+            return false;
+        }
+    }
 }

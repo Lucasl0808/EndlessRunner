@@ -74,7 +74,6 @@ class menu extends Phaser.Scene {
             this.newProj = true;
             this.addProjectile();
         }, null, this)
-        this.gameOver = false;
 
         this.arrowGroup = this.add.group({
             runChildUpdate: true
@@ -110,27 +109,6 @@ class menu extends Phaser.Scene {
         }
         this.bg.tilePositionX += 2;
 
-        //1 = water
-        //2 = arrow
-        //3 = fire
-
-        /*
-        let proj1 = Phaser.Math.Between(1,3);
-        if(proj1 == 1 && this.newProj == true){
-            //arrow and fire
-            //this.arrow = new Arrow(this, 600, 300, 'arrow');
-            //this.arrow.play('arrow');
-            this.addArrow();
-        }
-        if(proj1 == 2 && this.newProj == true){
-            //water and fire
-        }
-        if(proj1 == 3 && this.newProj == true){
-            //arrow and water
-            this.addArrow();
-            
-        }
-        */
     }
 
 
@@ -151,6 +129,18 @@ class menu extends Phaser.Scene {
             let fire = new Fire(this, 650, 500, 'fireball', 0);
             fire.play('fireball');   
             this.fireGroup.add(fire);
+        }
+    }
+
+    checkCollision(player, projectile) {
+        // simple AABB checking
+        if (player.x < projectile.x + projectile.width && 
+            player.x + player.width > projectile.x && 
+            player.y < projectile.y + projectile.height &&
+            player.height + player.y > projectile. y) {
+                return true;
+        } else {
+            return false;
         }
     }
 

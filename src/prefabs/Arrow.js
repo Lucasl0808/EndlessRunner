@@ -10,6 +10,10 @@ class Arrow extends Phaser.GameObjects.Sprite{
     update(){
         this.x -= this.moveSpeed;
 
+        if(this.checkCollision(this.parentScene.run, this)){
+            gameOver = true;
+            this.parentScene.pause();
+        }
         if(this.arrowSpawn && this.x < centerx) {
             // (recursively) call parent scene method from this context
             this.parentScene.addProjectile();
@@ -18,6 +22,18 @@ class Arrow extends Phaser.GameObjects.Sprite{
 
         if(this.x <= 0 - this.width){
             this.destroy();
+        }
+    }
+
+    checkCollision(player, projectile) {
+        // simple AABB checking
+        if (player.x < projectile.x + projectile.width && 
+            player.x + player.width > projectile.x && 
+            player.y < projectile.y + projectile.height &&
+            player.height + player.y > projectile. y) {
+                return true;
+        } else {
+            return false;
         }
     }
 }
