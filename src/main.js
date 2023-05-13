@@ -34,3 +34,16 @@ let titleConfig = {
     },
     fixedWidth: 0
 }
+
+let textConfig = {
+    fontFamily: 'Impact',
+    fontSize: '20px',
+    //backgroundColor: '#FFFFFF',
+    color: '#1BB9E8',
+    align: 'right',
+    padding: {
+        top: 5,
+        bottom: 5,
+    },
+    fixedWidth: 0
+}
