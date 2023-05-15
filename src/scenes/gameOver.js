@@ -10,6 +10,7 @@ class gameOverScene extends Phaser.Scene {
 
     update(){
         if(Phaser.Input.Keyboard.JustDown(keyR)){
+            gameOver = false;
             this.scene.start("titleScene");
         }
     }
