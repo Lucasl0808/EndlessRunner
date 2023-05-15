@@ -68,6 +68,8 @@ class play extends Phaser.Scene{
             this.newProj = true;
             this.addProjectile();
             this.time.addEvent({delay: 1000, callback: this.clock, callbackScope: this, loop: true});
+            this.time.addEvent({delay: 10000, callback: this.faster, callbackScope: this, loop: true});
+
         }, null, this)
 
         this.arrowGroup = this.add.group({
@@ -116,17 +118,17 @@ class play extends Phaser.Scene{
     addProjectile(){
         let proj1 = Phaser.Math.Between(1,3);
         if(proj1 == 1){
-            let wave = new Wave(this, 650, 90, 'wave', 0);
+            let wave = new Wave(this, 650, 90, 'wave', 0,projSpeed);
             wave.play('wave');   
             this.waveGroup.add(wave);
         }
         if(proj1 == 2){
-            let arrow = new Arrow(this, 650, 300, 'arrow', 0);
+            let arrow = new Arrow(this, 650, 300, 'arrow', 0,projSpeed);
             arrow.play('arrow');   
             this.arrowGroup.add(arrow);
         }
         if(proj1 == 3){
-            let fire = new Fire(this, 650, 520, 'fireball', 0);
+            let fire = new Fire(this, 650, 520, 'fireball', 0,projSpeed);
             fire.play('fireball');   
             this.fireGroup.add(fire);
         }
@@ -146,6 +148,10 @@ class play extends Phaser.Scene{
 
     clock(){
         score += 1;
-
+    }
+    faster(){
+        if(projSpeed < 15){
+        projSpeed += 1;
+        }
     }
 }

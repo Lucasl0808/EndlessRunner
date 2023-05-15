@@ -51,3 +51,4 @@ let textConfig = {
 let gameOver = false;
 let best = 0;
 let score = 0;
+let projSpeed = 1;

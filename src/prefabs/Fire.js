@@ -1,8 +1,8 @@
 class Fire extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, texture, frame){
+    constructor(scene, x, y, texture, frame,speed){
         super(scene, x, y, texture, frame);
         scene.add.existing(this);
-        this.moveSpeed = 1;
+        this.moveSpeed = speed;
         this.fireSpawn = true;
         this.parentScene = scene;
     }
