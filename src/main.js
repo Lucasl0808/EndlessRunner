@@ -13,11 +13,11 @@ let config = {
         }
     },
     
-    scene: [menu,play,gameOverScene]
+    scene: [menu,play,gameOverScene,creditScene]
 }
 
 let game = new Phaser.Game(config);
-let keyDOWN, keyUP, keyR, keyS, keyM;
+let keyDOWN, keyUP, keyR, keyS, keyM, keyC;
 
 let centerx = game.config.width/2;
 let centery = game.config.height/2;
