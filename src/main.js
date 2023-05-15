@@ -48,6 +48,44 @@ let textConfig = {
     fixedWidth: 0
 }
 
+let easyConfig = {
+    fontFamily: 'Impact',
+    fontSize: '20px',
+    //backgroundColor: '#FFFFFF',
+    color: '#09C628',
+    align: 'right',
+    padding: {
+        top: 5,
+        bottom: 5,
+    },
+    fixedWidth: 0
+}
+
+let mediumConfig = {
+    fontFamily: 'Impact',
+    fontSize: '20px',
+    //backgroundColor: '#FFFFFF',
+    color: '#CDD60B',
+    align: 'right',
+    padding: {
+        top: 5,
+        bottom: 5,
+    },
+    fixedWidth: 0
+}
+let hardConfig = {
+    fontFamily: 'Impact',
+    fontSize: '20px',
+    //backgroundColor: '#FFFFFF',
+    color: '',
+    align: 'right',
+    padding: {
+        top: 5,
+        bottom: 5,
+    },
+    fixedWidth: 0
+}
+
 let gameOver = false;
 let best = 0;
 let score = 0;

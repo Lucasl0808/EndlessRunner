@@ -14,8 +14,6 @@ class play extends Phaser.Scene{
     }
     create() {
         score = 0;
-        let title1 = this.add.text(centerx - 125, centery - 150, 'Portal Jumpers', titleConfig);
-
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
@@ -61,7 +59,8 @@ class play extends Phaser.Scene{
         
         this.newProj = false;
 
-        this.tracker = this.add.text(centerx, centery - 250, `Score: ${score}`, textConfig);
+        this.tracker = this.add.text(centerx, centery - 250, `Score: ${score}`, easyConfig);
+        this.diff = this.add.text(centerx - 100, centery - 250, 'Easy', easyConfig);
 
         this.instructions = this.time.delayedCall(7000, ()=>{
             this.tutorial.destroy();
@@ -81,6 +80,8 @@ class play extends Phaser.Scene{
         this.fireGroup = this.add.group({
             runChildUpdate: true
         });
+        this.medium = true;
+        this.hardtest = true;
 
     }
     update(){
@@ -111,6 +112,18 @@ class play extends Phaser.Scene{
         this.bg.tilePositionX += 2;
 
         this.tracker.setText(`Score: ${score}`);
+
+        if(score == 40 && this.medium){
+
+            this.tracker.setColor('#CDD60B');
+            this.diff.setColor('#CDD60B');
+            this.diff.setText('Medium');
+        }
+        if(score == 75 && this.hardtest){
+            this.tracker.setColor('#F1310B');
+            this.diff.setColor('#F1310B');
+            this.diff.setText('Hard');
+        }
     }
 
 
@@ -151,7 +164,7 @@ class play extends Phaser.Scene{
     }
     faster(){
         if(projSpeed < 15){
-        projSpeed += 1;
+            projSpeed += 1;
         }
     }
 }
