@@ -5,13 +5,19 @@ class gameOverScene extends Phaser.Scene {
     create(){
         this.add.text(centerx-100, centery, 'Game Over!', titleConfig);
         this.add.text(centerx-100, centery + 50, 'Press the R key to restart', textConfig);
+        this.add.text(centerx-100, centery + 100, 'Press the M key to go back to Menu', textConfig);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+        keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
     }
 
     update(){
-        if(Phaser.Input.Keyboard.JustDown(keyR)){
+        if(Phaser.Input.Keyboard.JustDown(keyM)){
             gameOver = false;
             this.scene.start("titleScene");
+        }
+        if(Phaser.Input.Keyboard.JustDown(keyR)){
+            gameOver = false;
+            this.scene.start("playScene");
         }
     }
 }

@@ -17,7 +17,7 @@ let config = {
 }
 
 let game = new Phaser.Game(config);
-let keyDOWN, keyUP, keyR;
+let keyDOWN, keyUP, keyR, keyS, keyM;
 
 let centerx = game.config.width/2;
 let centery = game.config.height/2;

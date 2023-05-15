@@ -19,7 +19,7 @@ class Arrow extends Phaser.GameObjects.Sprite{
             this.arrowSpawn = false;
         }
 
-        if(this.x <= 0 - this.width){
+        if(this.x <= 0 + this.width){
             this.destroy();
         }
     }

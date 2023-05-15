@@ -20,7 +20,7 @@ class Wave extends Phaser.GameObjects.Sprite{
             this.waveSpawn = false;
         }
 
-        if(this.x <= 0 - this.width){
+        if(this.x <= 0 + this.width + 20){
             this.destroy();
         }
     }
