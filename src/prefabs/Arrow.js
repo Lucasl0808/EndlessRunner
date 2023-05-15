@@ -12,7 +12,6 @@ class Arrow extends Phaser.GameObjects.Sprite{
 
         if(this.checkCollision(this.parentScene.run, this)){
             gameOver = true;
-            this.parentScene.pause();
         }
         if(this.arrowSpawn && this.x < centerx) {
             // (recursively) call parent scene method from this context

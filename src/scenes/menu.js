@@ -1,6 +1,6 @@
 class menu extends Phaser.Scene {
     constructor() {
-        super('titleScene');
+        super("titleScene");
     }
 
     preload(){
@@ -87,6 +87,9 @@ class menu extends Phaser.Scene {
     }
     update(){
 
+        if(gameOver == true){
+            this.scene.start("gameOverScene");
+        }
         if(Phaser.Input.Keyboard.JustDown(keyUP) && (this.run.y - 200) > 0){
             this.tp = this.add.sprite(this.run.x, this.run.y, 'teleport');
             this.tp.play('teleport');

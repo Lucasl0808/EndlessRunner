@@ -13,11 +13,11 @@ let config = {
         }
     },
     
-    scene: [menu,play]
+    scene: [menu,play,gameOverScene]
 }
 
 let game = new Phaser.Game(config);
-let keyDOWN, keyUP;
+let keyDOWN, keyUP, keyR;
 
 let centerx = game.config.width/2;
 let centery = game.config.height/2;
@@ -49,3 +49,4 @@ let textConfig = {
 }
 
 let gameOver = false;
+let best = 0;
