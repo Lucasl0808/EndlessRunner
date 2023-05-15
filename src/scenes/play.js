@@ -13,6 +13,7 @@ class play extends Phaser.Scene{
         this.load.spritesheet('wave', './assets/wave.png', {frameWidth:64, frameHeight:128});
     }
     create() {
+        score = 0;
         let title1 = this.add.text(centerx - 125, centery - 150, 'Portal Jumpers', titleConfig);
 
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
@@ -52,27 +53,21 @@ class play extends Phaser.Scene{
             frameRate: 1,
             frames: this.anims.generateFrameNumbers("wave", { start: 0, end: 2 }),
         });
-
-        //this.arrow = new Arrow(this, 600, 300, 'arrow');//this.add.sprite(600, 300, 'arrow');
-        //this.arrow.play('arrow');
         
         this.run = this.add.sprite(100, 120,'runner');
         this.run.play('running');
-
-        //this.fire = this.add.sprite(600, 500, 'fireball');
-        //this.fire.play('fireball');
-
-        //this.wave = this.add.sprite(600, 90, 'wave');
-        //this.wave.play('wave');
 
         this.tutorial = this.add.text(centerx, centery - 50, 'Press Up arrow and Down arrow to move your character and avoid the projectiles!', textConfig).setOrigin(0.5);
         
         this.newProj = false;
 
+        this.tracker = this.add.text(centerx, centery - 250, `Score: ${score}`, textConfig);
+
         this.instructions = this.time.delayedCall(7000, ()=>{
             this.tutorial.destroy();
             this.newProj = true;
             this.addProjectile();
+            this.time.addEvent({delay: 1000, callback: this.clock, callbackScope: this, loop: true});
         }, null, this)
 
         this.arrowGroup = this.add.group({
@@ -84,6 +79,7 @@ class play extends Phaser.Scene{
         this.fireGroup = this.add.group({
             runChildUpdate: true
         });
+
     }
     update(){
 
@@ -112,6 +108,7 @@ class play extends Phaser.Scene{
         }
         this.bg.tilePositionX += 2;
 
+        this.tracker.setText(`Score: ${score}`);
     }
 
 
@@ -145,5 +142,10 @@ class play extends Phaser.Scene{
         } else {
             return false;
         }
+    }
+
+    clock(){
+        score += 1;
+
     }
 }

@@ -8,6 +8,11 @@ class gameOverScene extends Phaser.Scene {
         this.add.text(centerx-100, centery + 100, 'Press the M key to go back to Menu', textConfig);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+        if(score >= best){
+            best = score;
+        }
+        this.add.text(centerx-100, centery + 150, `Current Best Score: ${best}`, textConfig);
+
     }
 
     update(){
