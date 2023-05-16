@@ -92,7 +92,7 @@ let hardConfig = {
     fontFamily: 'Impact',
     fontSize: '20px',
     //backgroundColor: '#FFFFFF',
-    color: '',
+    color: '#F1310B',
     align: 'right',
     padding: {
         top: 5,
