@@ -5,6 +5,7 @@ class menu extends Phaser.Scene {
     preload(){
         this.load.audio('bgm', './assets/bgm.mp3');
         this.load.audio('p2', './assets/arrowSound.mp3');
+        this.load.audio('p1', './assets/water.mp3');
         this.load.audio('tele', './assets/teleport.mp3');
     }
 

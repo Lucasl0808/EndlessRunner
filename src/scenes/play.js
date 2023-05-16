@@ -89,6 +89,7 @@ class play extends Phaser.Scene{
 
         tele = this.sound.add('tele');
         p2 = this.sound.add('p2');
+        p1 = this.sound.add('p1');
     }
     update(){
 
@@ -141,7 +142,8 @@ class play extends Phaser.Scene{
         let proj1 = Phaser.Math.Between(1,3);
         if(proj1 == 1){
             let wave = new Wave(this, 650, 90, 'wave', 0,projSpeed);
-            wave.play('wave');   
+            wave.play('wave');
+            p1.play({volume: 0.5});
             this.waveGroup.add(wave);
         }
         if(proj1 == 2){
