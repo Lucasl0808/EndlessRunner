@@ -2,7 +2,7 @@ let config = {
     type: Phaser.AUTO,
     width: 700,
     height: 600,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#12E885',
     physics: {
         default: 'arcade',
         arcade: {
@@ -28,7 +28,20 @@ let titleConfig = {
     fontFamily: 'Impact',
     fontSize: '40px',
     //backgroundColor: '#FFFFFF',
-    color: '#1BB9E8',
+    color: '#1249E8',
+    align: 'right',
+    padding: {
+        top: 5,
+        bottom: 5,
+    },
+    fixedWidth: 0
+}
+
+let menuTextConfig = {
+    fontFamily: 'Impact',
+    fontSize: '20px',
+    //backgroundColor: '#FFFFFF',
+    color: '#AD38E9',
     align: 'right',
     padding: {
         top: 5,

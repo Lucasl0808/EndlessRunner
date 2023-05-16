@@ -71,7 +71,7 @@ class play extends Phaser.Scene{
             this.newProj = true;
             this.addProjectile();
             this.time.addEvent({delay: 1000, callback: this.clock, callbackScope: this, loop: true});
-            this.time.addEvent({delay: 10000, callback: this.faster, callbackScope: this, loop: true});
+            this.time.addEvent({delay: 14000, callback: this.faster, callbackScope: this, loop: true});
 
         }, null, this)
 
@@ -135,7 +135,7 @@ class play extends Phaser.Scene{
             this.tracker.setColor('#F1310B');
             this.diff.setColor('#F1310B');
             this.diff.setText('Hard');
-            scrollSpeed = 6
+            scrollSpeed = 5;
         }
     }
 
