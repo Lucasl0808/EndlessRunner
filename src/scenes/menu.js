@@ -4,6 +4,7 @@ class menu extends Phaser.Scene {
     }
     preload(){
         this.load.audio('bgm', './assets/bgm.mp3');
+        this.load.audio('tele', './assets/teleport.mp3');
     }
 
     create(){

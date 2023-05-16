@@ -22,7 +22,7 @@ let keyDOWN, keyUP, keyR, keyS, keyM, keyC;
 let centerx = game.config.width/2;
 let centery = game.config.height/2;
 
-let bgm;
+let bgm, tele, p1,p2,p3;
 
 let titleConfig = {
     fontFamily: 'Impact',

@@ -87,6 +87,8 @@ class play extends Phaser.Scene{
         this.medium = true;
         this.hardtest = true;
 
+        tele = this.sound.add('tele');
+
     }
     update(){
 
@@ -97,6 +99,7 @@ class play extends Phaser.Scene{
         if(Phaser.Input.Keyboard.JustDown(keyUP) && (this.run.y - 200) > 0){
             this.tp = this.add.sprite(this.run.x, this.run.y, 'teleport');
             this.tp.play('teleport');
+            tele.play({volume: 0.3});
 
             this.run.y -= 200;
 
@@ -107,6 +110,7 @@ class play extends Phaser.Scene{
         if(Phaser.Input.Keyboard.JustDown(keyDOWN) && (this.run.y + 200) < 600){
             this.tp = this.add.sprite(this.run.x, this.run.y, 'teleport');
             this.tp.play('teleport');
+            tele.play({volume: 0.3});
 
             this.run.y += 200;
 
