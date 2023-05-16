@@ -88,7 +88,7 @@ class play extends Phaser.Scene{
         this.hardtest = true;
 
         tele = this.sound.add('tele');
-
+        p2 = this.sound.add('p2');
     }
     update(){
 
@@ -147,6 +147,7 @@ class play extends Phaser.Scene{
         if(proj1 == 2){
             let arrow = new Arrow(this, 650, 300, 'arrow', 0,projSpeed);
             arrow.play('arrow');   
+            p2.play({volume: 0.5});
             this.arrowGroup.add(arrow);
         }
         if(proj1 == 3){
