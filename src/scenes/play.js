@@ -90,6 +90,7 @@ class play extends Phaser.Scene{
         tele = this.sound.add('tele');
         p2 = this.sound.add('p2');
         p1 = this.sound.add('p1');
+        p3 = this.sound.add('p3');
     }
     update(){
 
@@ -119,7 +120,7 @@ class play extends Phaser.Scene{
                 this.tp.destroy();
             });
         }
-        this.bg.tilePositionX += 2;
+        this.bg.tilePositionX += scrollSpeed;
 
         this.tracker.setText(`Score: ${score}`);
 
@@ -128,11 +129,13 @@ class play extends Phaser.Scene{
             this.tracker.setColor('#CDD60B');
             this.diff.setColor('#CDD60B');
             this.diff.setText('Medium');
+            scrollSpeed = 4;
         }
         if(score == 75 && this.hardtest){
             this.tracker.setColor('#F1310B');
             this.diff.setColor('#F1310B');
             this.diff.setText('Hard');
+            scrollSpeed = 6
         }
     }
 
@@ -143,18 +146,19 @@ class play extends Phaser.Scene{
         if(proj1 == 1){
             let wave = new Wave(this, 650, 90, 'wave', 0,projSpeed);
             wave.play('wave');
-            p1.play({volume: 0.5});
+            p1.play({volume: 0.4});
             this.waveGroup.add(wave);
         }
         if(proj1 == 2){
             let arrow = new Arrow(this, 650, 300, 'arrow', 0,projSpeed);
             arrow.play('arrow');   
-            p2.play({volume: 0.5});
+            p2.play({volume: 1.2});
             this.arrowGroup.add(arrow);
         }
         if(proj1 == 3){
             let fire = new Fire(this, 650, 520, 'fireball', 0,projSpeed);
-            fire.play('fireball');   
+            fire.play('fireball');
+            p3.play({volume: 1});
             this.fireGroup.add(fire);
         }
     }
