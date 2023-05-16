@@ -2,6 +2,9 @@ class menu extends Phaser.Scene {
     constructor() {
         super("titleScene");
     }
+    preload(){
+        this.load.audio('bgm', './assets/bgm.mp3');
+    }
 
     create(){
         this.add.text(centerx-100, centery, 'Portal Jumpers', titleConfig);

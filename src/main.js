@@ -22,6 +22,8 @@ let keyDOWN, keyUP, keyR, keyS, keyM, keyC;
 let centerx = game.config.width/2;
 let centery = game.config.height/2;
 
+let bgm;
+
 let titleConfig = {
     fontFamily: 'Impact',
     fontSize: '40px',

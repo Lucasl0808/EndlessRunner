@@ -13,6 +13,10 @@ class play extends Phaser.Scene{
         this.load.spritesheet('wave', './assets/wave.png', {frameWidth:64, frameHeight:128});
     }
     create() {
+
+        bgm = this.sound.add('bgm');
+        bgm.play({volume:0.2});
+
         score = 0;
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
@@ -87,6 +91,7 @@ class play extends Phaser.Scene{
     update(){
 
         if(gameOver == true){
+            bgm.stop();
             this.scene.start("gameOverScene");
         }
         if(Phaser.Input.Keyboard.JustDown(keyUP) && (this.run.y - 200) > 0){
