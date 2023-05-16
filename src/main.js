@@ -37,6 +37,19 @@ let titleConfig = {
     fixedWidth: 0
 }
 
+let gameOverConfig = {
+    fontFamily: 'Impact',
+    fontSize: '80px',
+    //backgroundColor: '#FFFFFF',
+    color: '#1249E8',
+    align: 'right',
+    padding: {
+        top: 5,
+        bottom: 5,
+    },
+    fixedWidth: 0
+}
+
 let menuTextConfig = {
     fontFamily: 'Impact',
     fontSize: '20px',

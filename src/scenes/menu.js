@@ -27,12 +27,12 @@ class menu extends Phaser.Scene {
         });
 
         this.add.text(centerx-150, centery-150, 'Portal Jumpers', titleConfig);
-        this.add.text(centerx-150, centery + 50, 'Press the S key to start', menuTextConfig);
-        this.add.text(centerx-150, centery + 100, 'Press the C key for Credits', menuTextConfig);
-        this.runner = this.add.sprite(centerx - 150, centery - 50, 'runner');
-        this.add.sprite(centerx - 75, centery - 50, 'fireball');
-        this.add.sprite(centerx +25, centery - 100, 'wave');
-        this.add.sprite(centerx + 120, centery - 50, 'arrow');
+        this.add.text(centerx-150, centery, 'Press the S key to start', menuTextConfig);
+        this.add.text(centerx-150, centery + 50, 'Press the C key for Credits', menuTextConfig);
+        this.runner = this.add.sprite(centerx - 200, centery - 50, 'runner');
+        this.add.sprite(centerx - 125, centery - 50, 'fireball');
+        this.add.sprite(centerx-20, centery - 100, 'wave');
+        this.add.sprite(centerx + 75, centery - 60, 'arrow');
 
         this.time.addEvent({delay: 3000, callback: this.animate, callbackScope: this, loop: true});
 

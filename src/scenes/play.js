@@ -52,7 +52,7 @@ class play extends Phaser.Scene{
 
         this.anims.create({
             key: "wave",
-            frameRate: 1,
+            frameRate: 2,
             frames: this.anims.generateFrameNumbers("wave", { start: 0, end: 2 }),
         });
         
@@ -66,7 +66,7 @@ class play extends Phaser.Scene{
         this.tracker = this.add.text(centerx, centery - 250, `Score: ${score}`, easyConfig);
         this.diff = this.add.text(centerx - 100, centery - 250, 'Easy', easyConfig);
 
-        this.instructions = this.time.delayedCall(7000, ()=>{
+        this.instructions = this.time.delayedCall(5000, ()=>{
             this.tutorial.destroy();
             this.newProj = true;
             this.addProjectile();
@@ -124,18 +124,18 @@ class play extends Phaser.Scene{
 
         this.tracker.setText(`Score: ${score}`);
 
-        if(score == 40 && this.medium){
+        if(score == 30 && this.medium){
 
             this.tracker.setColor('#CDD60B');
             this.diff.setColor('#CDD60B');
             this.diff.setText('Medium');
-            scrollSpeed = 4;
+            scrollSpeed = 3;
         }
-        if(score == 75 && this.hardtest){
+        if(score == 60 && this.hardtest){
             this.tracker.setColor('#F1310B');
             this.diff.setColor('#F1310B');
             this.diff.setText('Hard');
-            scrollSpeed = 5;
+            scrollSpeed = 4;
         }
     }
 
